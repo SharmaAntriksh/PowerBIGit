@@ -7,9 +7,75 @@
         "x": 0,
         "y": 0
       },
-      "nodes": [],
+      "nodes": [
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "Customer",
+          "nodeLineageTag": "c5fe7db1-36b2-4994-ad27-db4030e91fa8",
+          "size": {
+            "height": 195.70934710432169,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 684.99914231559194,
+            "y": 431.52893212233738
+          },
+          "nodeIndex": "Date",
+          "nodeLineageTag": "2fb20bc1-9223-49cf-bd49-f1ea78068d9e",
+          "size": {
+            "height": 184.43468192641058,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 656.6,
+            "y": 0
+          },
+          "nodeIndex": "Products",
+          "nodeLineageTag": "b15c3fbd-334c-4e2e-80f2-e452fec05d18",
+          "size": {
+            "height": 201.34667969327728,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 335.73693330121938,
+            "y": 212.74952551267029
+          },
+          "nodeIndex": "Sales",
+          "nodeLineageTag": "449f5b21-3ca5-4850-a22d-e02fb6cd014f",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 444.73086226605108
+          },
+          "nodeIndex": "Store",
+          "nodeLineageTag": "9efca987-d64d-4147-ac68-382608b47f06",
+          "size": {
+            "height": 169.1600167484994,
+            "width": 234
+          },
+          "zIndex": 4
+        }
+      ],
       "name": "All tables",
-      "zoomValue": 100,
+      "zoomValue": 84.235113759624483,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,
