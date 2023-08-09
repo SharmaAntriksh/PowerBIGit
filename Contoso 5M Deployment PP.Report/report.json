@@ -25,7 +25,17 @@
       "filters": "[]",
       "height": 720.00,
       "name": "ReportSection",
-      "visualContainers": [],
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"86cec8e0281aca0cd5a4\",\"layouts\":[{\"id\":0,\"position\":{\"x\":92.58739000565109,\"y\":124.00096875756842,\"z\":0,\"width\":1038.3014450633727,\"height\":441.44344877694357,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Products.Brand\"},{\"queryRef\":\"Sales.Sales Amount\"},{\"queryRef\":\"Sales.Cost Amount\"},{\"queryRef\":\"Sales.Profit\"},{\"queryRef\":\"Sales.Margin %\"},{\"queryRef\":\"Sales.Total Quantity\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Products\",\"Type\":0},{\"Name\":\"s\",\"Entity\":\"Sales\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Brand\"},\"Name\":\"Products.Brand\",\"NativeReferenceName\":\"Brand\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Sales Amount\"},\"Name\":\"Sales.Sales Amount\",\"NativeReferenceName\":\"Sales Amount\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Total Quantity\"},\"Name\":\"Sales.Total Quantity\",\"NativeReferenceName\":\"Total Quantity\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Profit\"},\"Name\":\"Sales.Profit\",\"NativeReferenceName\":\"Profit\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Margin %\"},\"Name\":\"Sales.Margin %\",\"NativeReferenceName\":\"Margin %\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Cost Amount\"},\"Name\":\"Sales.Cost Amount\",\"NativeReferenceName\":\"Cost Amount\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"grid\":[{\"properties\":{\"textSize\":{\"expr\":{\"Literal\":{\"Value\":\"15D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 441.44,
+          "width": 1038.30,
+          "x": 92.59,
+          "y": 124.00,
+          "z": 0.00
+        }
+      ],
       "width": 1280.00
     }
   ]
