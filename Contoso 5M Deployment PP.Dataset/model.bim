@@ -100,15 +100,11 @@
         "name": "RowLimiter",
         "annotations": [
           {
-            "name": "PBI_NavigationStepName",
-            "value": "Navigation"
-          },
-          {
             "name": "PBI_ResultType",
             "value": "Number"
           }
         ],
-        "expression": "100000 meta [IsParameterQuery=true, Type=\"Number\", IsParameterQueryRequired=true]",
+        "expression": "-1 meta [IsParameterQuery=true, Type=\"Number\", IsParameterQueryRequired=true]",
         "kind": "m",
         "lineageTag": "4089163d-4edc-4060-9d7a-14ca3a701844",
         "queryGroup": "Params"
@@ -1985,19 +1981,6 @@
         ],
         "columns": [
           {
-            "name": "Currency Code",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "46530a82-ccac-4730-95f5-2b8a6fc64531",
-            "sourceColumn": "Currency Code",
-            "summarizeBy": "none"
-          },
-          {
             "name": "CustomerKey",
             "annotations": [
               {
@@ -2028,37 +2011,6 @@
             "lineageTag": "9da81248-b7e0-4d7d-9b48-791c757fa12e",
             "sourceColumn": "Delivery Date",
             "summarizeBy": "none"
-          },
-          {
-            "name": "Exchange Rate",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              },
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
-              }
-            ],
-            "dataType": "double",
-            "lineageTag": "fdf304f6-f515-47b4-a843-7fc79efcb113",
-            "sourceColumn": "Exchange Rate",
-            "summarizeBy": "sum"
-          },
-          {
-            "name": "Line Number",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "lineageTag": "c8c2a860-db1b-46eb-886c-dce07c9e9c83",
-            "sourceColumn": "Line Number",
-            "summarizeBy": "sum"
           },
           {
             "name": "Net Price",
@@ -2095,20 +2047,6 @@
             "lineageTag": "0455a63f-acf8-424c-b512-e04e546571b8",
             "sourceColumn": "Order Date",
             "summarizeBy": "none"
-          },
-          {
-            "name": "Order Number",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "lineageTag": "46e619c5-43be-454b-9e32-22a09a8d4ba7",
-            "sourceColumn": "Order Number",
-            "summarizeBy": "sum"
           },
           {
             "name": "ProductKey",
@@ -2266,7 +2204,8 @@
               "expression": [
                 "let",
                 "    Source = Database{[Name = \"Sales\"]}[Data],",
-                "    LimitRows = if RowLimiter = -1 then Source else Table.FirstN ( Source, RowLimiter )",
+                "    RemoveHighCardinalityColumns = Table.SelectColumns(Source,{\"Order Date\", \"Delivery Date\", \"CustomerKey\", \"StoreKey\", \"ProductKey\", \"Quantity\", \"Unit Price\", \"Net Price\", \"Unit Cost\"}),",
+                "    LimitRows = if RowLimiter = -1 then RemoveHighCardinalityColumns else Table.FirstN ( RemoveHighCardinalityColumns, RowLimiter )",
                 "in",
                 "    LimitRows"
               ],
