@@ -2196,7 +2196,7 @@
             "annotations": [
               {
                 "name": "PBI_FormatHint",
-                "value": "{\"currencyCulture\":\"en-US\"}"
+                "value": "{\"isDecimal\":true}"
               }
             ],
             "displayFolder": "01 - Model Measures",
@@ -2207,7 +2207,7 @@
               "    Sales[Quantity] * Sales[Net Price]",
               ")"
             ],
-            "formatString": "\\$#,0.###############;(\\$#,0.###############);\\$#,0.###############",
+            "formatString": "#,0",
             "lineageTag": "6b79d766-9d2f-40e2-a754-ca5e7815ceaf"
           },
           {
@@ -2215,7 +2215,7 @@
             "annotations": [
               {
                 "name": "PBI_FormatHint",
-                "value": "{\"currencyCulture\":\"en-US\"}"
+                "value": "{\"isDecimal\":true}"
               }
             ],
             "displayFolder": "01 - Model Measures",
@@ -2226,7 +2226,7 @@
               "    Sales[Quantity] * Sales[Unit Cost]",
               ")"
             ],
-            "formatString": "\\$#,0.###############;(\\$#,0.###############);\\$#,0.###############",
+            "formatString": "#,0",
             "lineageTag": "1a05b01b-e590-40fb-a7ee-4565871b6ed5"
           },
           {
@@ -2234,31 +2234,26 @@
             "annotations": [
               {
                 "name": "PBI_FormatHint",
-                "value": "{\"currencyCulture\":\"en-US\"}"
+                "value": "{\"isDecimal\":true}"
               }
             ],
             "displayFolder": "01 - Model Measures",
             "expression": "[Sales Amount] - [Cost Amount]",
-            "formatString": "\\$#,0.###############;(\\$#,0.###############);\\$#,0.###############",
+            "formatString": "#,0",
             "lineageTag": "0161a754-14c9-4ddf-8b88-a618f1624045"
           },
           {
             "name": "Margin %",
-            "annotations": [
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
-              }
-            ],
             "displayFolder": "01 - Model Measures",
             "expression": "DIVIDE ( [Profit], [Sales Amount] )",
+            "formatString": "0.00%;-0.00%;0.00%",
             "lineageTag": "ec3fce0e-26f4-481b-9345-e37a55d35df3"
           },
           {
             "name": "Total Quantity",
             "displayFolder": "01 - Model Measures",
             "expression": "SUM ( Sales[Quantity] )",
-            "formatString": "0",
+            "formatString": "#,0",
             "lineageTag": "99923f88-4771-4c02-bb1a-ccd071fab868"
           }
         ],
