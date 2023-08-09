@@ -4,7 +4,7 @@
     "annotations": [
       {
         "name": "PBI_QueryOrder",
-        "value": "[\"Database\",\"ServerName\",\"DatabaseName\",\"Sales\",\"Products\",\"Dates\",\"Customer\",\"Store\"]"
+        "value": "[\"Database\",\"ServerName\",\"DatabaseName\",\"Sales\",\"Products\",\"Dates\",\"Customer\",\"Store\",\"RowLimiter\"]"
       },
       {
         "name": "PBIDesktopVersion",
@@ -59,7 +59,8 @@
           "    KeepViewsOnly"
         ],
         "kind": "m",
-        "lineageTag": "6359e611-22f9-48a8-8f83-6af3e77d2fff"
+        "lineageTag": "6359e611-22f9-48a8-8f83-6af3e77d2fff",
+        "queryGroup": "Params"
       },
       {
         "name": "ServerName",
@@ -75,7 +76,8 @@
         ],
         "expression": "\"SUMMER\\SQL2022\" meta [IsParameterQuery=true, Type=\"Text\", IsParameterQueryRequired=true]",
         "kind": "m",
-        "lineageTag": "7017da56-1e89-4184-b951-3244a2c9f114"
+        "lineageTag": "7017da56-1e89-4184-b951-3244a2c9f114",
+        "queryGroup": "Params"
       },
       {
         "name": "DatabaseName",
@@ -91,7 +93,46 @@
         ],
         "expression": "\"Contoso 5M\" meta [IsParameterQuery=true, Type=\"Text\", IsParameterQueryRequired=true]",
         "kind": "m",
-        "lineageTag": "94e27c98-c860-4ec7-b623-1464891c9a47"
+        "lineageTag": "94e27c98-c860-4ec7-b623-1464891c9a47",
+        "queryGroup": "Params"
+      },
+      {
+        "name": "RowLimiter",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Number"
+          }
+        ],
+        "expression": "100000 meta [IsParameterQuery=true, Type=\"Number\", IsParameterQueryRequired=true]",
+        "kind": "m",
+        "lineageTag": "4089163d-4edc-4060-9d7a-14ca3a701844",
+        "queryGroup": "Params"
+      }
+    ],
+    "queryGroups": [
+      {
+        "annotations": [
+          {
+            "name": "PBI_QueryGroupOrder",
+            "value": "0"
+          }
+        ],
+        "folder": "Params"
+      },
+      {
+        "annotations": [
+          {
+            "name": "PBI_QueryGroupOrder",
+            "value": "1"
+          }
+        ],
+        "description": "Queries that are to be loaded to the data model",
+        "folder": "Model Queries"
       }
     ],
     "relationships": [
@@ -169,10 +210,6 @@
       {
         "name": "Customer",
         "annotations": [
-          {
-            "name": "PBI_NavigationStepName",
-            "value": "Navigation"
-          },
           {
             "name": "PBI_ResultType",
             "value": "Table"
@@ -368,6 +405,7 @@
           {
             "name": "Customer-8224e87d-404a-4bbd-96d4-9a748f3e6147",
             "mode": "import",
+            "queryGroup": "Model Queries",
             "source": {
               "expression": [
                 "let",
@@ -601,17 +639,8 @@
         "name": "Dates",
         "annotations": [
           {
-            "name": "PBI_NavigationStepName",
-            "value": "Navigation"
-          },
-          {
             "name": "PBI_ResultType",
             "value": "Table"
-          }
-        ],
-        "changedProperties": [
-          {
-            "property": "Name"
           }
         ],
         "columns": [
@@ -852,6 +881,7 @@
           {
             "name": "Dates-3eae6ff9-ee18-4fd5-8f0f-b9c8bb39b332",
             "mode": "import",
+            "queryGroup": "Model Queries",
             "source": {
               "expression": [
                 "let",
@@ -1720,10 +1750,6 @@
         "name": "Products",
         "annotations": [
           {
-            "name": "PBI_NavigationStepName",
-            "value": "Navigation"
-          },
-          {
             "name": "PBI_ResultType",
             "value": "Table"
           }
@@ -1932,6 +1958,7 @@
           {
             "name": "Products-518dc289-3c14-4afb-9ffb-16dae88df2e2",
             "mode": "import",
+            "queryGroup": "Model Queries",
             "source": {
               "expression": [
                 "let",
@@ -2167,12 +2194,14 @@
           {
             "name": "Sales-0276af6a-9cd7-48d4-98ba-8646a154570c",
             "mode": "import",
+            "queryGroup": "Model Queries",
             "source": {
               "expression": [
                 "let",
-                "    Source = Database{[Name = \"Sales\"]}[Data]",
+                "    Source = Database{[Name = \"Sales\"]}[Data],",
+                "    LimitRows = if RowLimiter = -1 then Source else Table.FirstN ( Source, RowLimiter )",
                 "in",
-                "    Source"
+                "    LimitRows"
               ],
               "type": "m"
             }
@@ -2350,6 +2379,7 @@
           {
             "name": "Store-468ab332-909a-498f-bc51-372c50bf31b3",
             "mode": "import",
+            "queryGroup": "Model Queries",
             "source": {
               "expression": [
                 "let",
