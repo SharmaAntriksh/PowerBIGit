@@ -32,7 +32,7 @@
             "height": 201.34667969327728,
             "width": 234
           },
-          "zIndex": 1
+          "zIndex": 2
         },
         {
           "location": {
@@ -45,12 +45,12 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 2
+          "zIndex": 5
         },
         {
           "location": {
             "x": 0,
-            "y": 444.73086226605108
+            "y": 348.57143849991985
           },
           "nodeIndex": "Store",
           "nodeLineageTag": "9efca987-d64d-4147-ac68-382608b47f06",
@@ -62,15 +62,16 @@
         },
         {
           "location": {
-            "x": 684.99914231559194,
-            "y": 431.52893212233738
+            "x": 688.56060245507831,
+            "y": 348.42819553432275
           },
           "nodeIndex": "Dates",
+          "nodeLineageTag": "2fb20bc1-9223-49cf-bd49-f1ea78068d9e",
           "size": {
             "height": 184.43468192641058,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 1
         }
       ],
       "name": "All tables",
